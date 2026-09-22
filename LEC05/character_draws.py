@@ -5,5 +5,10 @@ from pico2d import *
 open_canvas(800, 600)
 update_canvas()
 
-delay(1)
+character = load_image('character.png')
+update_canvas()
+
+character.draw(400, 300)
+
+delay(10)
 close_canvas()
