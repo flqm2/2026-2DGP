@@ -9,7 +9,6 @@ character = load_image('character.png')
 WIDTH, HIGHT = 800, 600
 CENTER_X, CENTER_Y = WIDTH // 2, HIGHT // 2
 start_x, start_y = CENTER_X, CENTER_Y // 2
-x, y = start_x, start_y
 
 
 
@@ -26,11 +25,18 @@ def draw_circle():
         update_canvas()
         RADIUS += 0.01
         delay(0.01)
-        if y <= start_y:
+        if y <= 100.1:
             break
     pass
 def draw_square():
-    print("draw_square()")
+    x, y = start_x, start_y
+    clear_canvas()
+    while True:
+        clear_canvas()
+        character.draw(x, y)
+        update_canvas()
+        x+=2
+        delay(0.01)
     pass
 def draw_triangle():
     print("draw_triangle()")
