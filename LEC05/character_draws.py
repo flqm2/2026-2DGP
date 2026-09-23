@@ -26,6 +26,8 @@ def draw_circle():
         update_canvas()
         RADIUS += 0.01
         delay(0.01)
+        if y <= start_y:
+            break
     pass
 def draw_square():
     print("draw_square()")
