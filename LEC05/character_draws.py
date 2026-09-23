@@ -8,7 +8,12 @@ update_canvas()
 character = load_image('character.png')
 update_canvas()
 
-character.draw(400, 300)
 
 delay(10)
+
+while True:
+    character.draw(400, 300)
+    pass
+
 close_canvas()
+
