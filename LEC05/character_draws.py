@@ -14,7 +14,9 @@ x, y = start_x, start_y
 
 
 def draw_circle():
-    print("draw_circle()")
+    clear_canvas()
+    character.draw(x, y)
+    update_canvas()
     pass
 def draw_square():
     print("draw_square()")
