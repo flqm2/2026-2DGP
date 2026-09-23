@@ -25,6 +25,7 @@ def draw_circle():
         character.draw(x, y)
         update_canvas()
         RADIUS += 0.01
+        delay(0.01)
     pass
 def draw_square():
     print("draw_square()")
