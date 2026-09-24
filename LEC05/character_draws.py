@@ -73,7 +73,7 @@ def draw_triangle():
         character.draw(x, y)
         update_canvas()
         delay(0.01)
-        if x == start_x and y <= start_y:
+        if x >= start_x and y <= start_y:
             break
     pass
 
