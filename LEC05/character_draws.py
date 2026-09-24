@@ -53,8 +53,8 @@ def draw_triangle():
     clear_canvas()
     while True:
         if y <= 400:
-            x += m.sin(angle)
-            y += m.cos(angle)
+            x += m.sin(angle) * 2.5
+            y += m.cos(angle) * 2.5
         elif x >= 200:
             x -= 2
         clear_canvas()
