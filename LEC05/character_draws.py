@@ -52,11 +52,14 @@ def draw_triangle():
     angle = m.radians(45)
     clear_canvas()
     while True:
+        if y <= 400:
+            x += m.sin(angle)
+            y += m.cos(angle)
+        elif x >= 200:
+            x -= 2
         clear_canvas()
         character.draw(x, y)
         update_canvas()
-        x += m.sin(angle)
-        y += m.cos(angle)
         delay(0.01)
         if x == start_x and y <= start_y:
             break
