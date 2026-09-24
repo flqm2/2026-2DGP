@@ -44,6 +44,8 @@ def draw_square():
         character.draw(x, y)
         update_canvas()
         delay(0.01)
+        if x == start_x and y == start_y:
+            break
     pass
 def draw_triangle():
     print("draw_triangle()")
