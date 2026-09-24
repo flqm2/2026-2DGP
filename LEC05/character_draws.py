@@ -36,6 +36,8 @@ def draw_square():
             y += 2
         elif y >= 400 and x >= 200:
             x -= 2
+        elif x <= 200 and y >= 100:
+            y -= 2
         else:
             x+=2
         clear_canvas()
