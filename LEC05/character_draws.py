@@ -78,8 +78,8 @@ def draw_triangle():
     pass
 
 while True:
-    # draw_circle()
-    # draw_square()
+    draw_circle()
+    draw_square()
     draw_triangle()
     pass
 
