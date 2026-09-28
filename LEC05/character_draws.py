@@ -16,16 +16,17 @@ def draw_circle():
     clear_canvas()
     character.draw(400, 150)
     update_canvas()
-    RADIUS = 400
+    RADIUS = 150
+    angle = 0
     while True:
         clear_canvas()
-        x = (m.sin(RADIUS) * 200) + 400
-        y = (m.cos(RADIUS) * 200) + 300
+        x = (m.sin(angle) * RADIUS) + 400
+        y = (-m.cos(angle) * RADIUS) + 300
         character.draw(x, y)
         update_canvas()
-        RADIUS += 0.01
+        angle += 0.01
         delay(0.01)
-        if y <= 100.1:
+        if angle > 2 * m.pi:
             break
     pass
 def draw_square():
