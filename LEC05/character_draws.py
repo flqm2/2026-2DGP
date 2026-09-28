@@ -15,8 +15,16 @@ x, y = start_x, start_y
 
 def draw_circle():
     clear_canvas()
-    character.draw(x, y)
+    character.draw(400, 150)
     update_canvas()
+    RADIUS = 400
+    while True:
+        clear_canvas()
+        x = (m.sin(RADIUS) * 200) + 400
+        y = (m.cos(RADIUS) * 200) + 300
+        character.draw(x, y)
+        update_canvas()
+        RADIUS += 0.01
     pass
 def draw_square():
     print("draw_square()")
