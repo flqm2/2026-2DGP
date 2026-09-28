@@ -65,7 +65,7 @@ def draw_triangle():
                 ismove2 = True
                 ismove = False
         elif ismove2:
-            x -= m.sin(angle) * 2.5
+            x += m.sin(angle) * 2.5
             y -= m.cos(angle) * 2.5
             if x >= start_x and y <= start_y and ismove2:
                 ismove2 = False
