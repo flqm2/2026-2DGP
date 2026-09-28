@@ -49,14 +49,14 @@ def draw_square():
     pass
 def draw_triangle():
     x, y = start_x, start_y
+    angle = m.radians(45)
     clear_canvas()
     while True:
-        if x <= 600 and y <= 400:
-            y -= 2
-            x += 2
         clear_canvas()
         character.draw(x, y)
         update_canvas()
+        x += m.sin(angle)
+        y += m.cos(angle)
         delay(0.01)
         if x == start_x and y <= start_y:
             break
