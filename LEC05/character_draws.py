@@ -50,13 +50,25 @@ def draw_square():
 def draw_triangle():
     x, y = start_x, start_y
     angle = m.radians(45)
+    ismove = False
+    ismove2 = False
     clear_canvas()
     while True:
-        if y <= 400:
+        if ismove == False and ismove2 == False:
             x += m.sin(angle) * 2.5
             y += m.cos(angle) * 2.5
-        elif x >= 200:
+            if y >= 400:
+                ismove = True
+        elif x >= 200 and ismove:
             x -= 2
+            if x <= 200:
+                ismove2 = True
+                ismove = False
+        elif ismove2:
+            x -= m.sin(angle) * 2.5
+            y -= m.cos(angle) * 2.5
+            if x >= start_x and y <= start_y and ismove2:
+                ismove2 = False
         clear_canvas()
         character.draw(x, y)
         update_canvas()
