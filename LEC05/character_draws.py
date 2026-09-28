@@ -36,7 +36,7 @@ def draw_square():
             y += 2
         elif y >= 400 and x >= 200:
             x -= 2
-        elif x <= 200 and y >= 100:
+        elif x <= 200 and y >= start_y:
             y -= 2
         else:
             x+=2
@@ -44,7 +44,7 @@ def draw_square():
         character.draw(x, y)
         update_canvas()
         delay(0.01)
-        if x == start_x and y == start_y:
+        if x == start_x and y <= start_y:
             break
     pass
 def draw_triangle():
