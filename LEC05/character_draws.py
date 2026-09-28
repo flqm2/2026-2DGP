@@ -48,7 +48,18 @@ def draw_square():
             break
     pass
 def draw_triangle():
-    print("draw_triangle()")
+    x, y = start_x, start_y
+    clear_canvas()
+    while True:
+        if x <= 600 and y <= 400:
+            x += 2
+            y += 2
+        clear_canvas()
+        character.draw(x, y)
+        update_canvas()
+        delay(0.01)
+        if x == start_x and y <= start_y:
+            break
     pass
 
 while True:
