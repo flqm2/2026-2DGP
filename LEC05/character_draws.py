@@ -32,10 +32,13 @@ def draw_square():
     x, y = start_x, start_y
     clear_canvas()
     while True:
+        if x >= 600:
+            y += 2
+        else:
+            x+=2
         clear_canvas()
         character.draw(x, y)
         update_canvas()
-        x+=2
         delay(0.01)
     pass
 def draw_triangle():
