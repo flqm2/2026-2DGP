@@ -52,10 +52,8 @@ def draw_triangle():
     clear_canvas()
     while True:
         if x <= 600 and y <= 400:
+            y -= 2
             x += 2
-            y += 2
-        elif x >= 200 and start_y <= y:
-            x -= 2
         clear_canvas()
         character.draw(x, y)
         update_canvas()
