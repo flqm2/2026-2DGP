@@ -27,3 +27,15 @@ class Animation:
     frames: tuple[Frame, ...]
     frame_seconds: float
 
+
+def load_animations(path=ROOT / "animation_frames.json"):
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
+    actions = tuple(Animation(
+        item["name"],
+        tuple(Frame(**{key: frame[key] for key in ("left", "bottom", "width", "height")})
+              for frame in item["frames"]),
+        item["frame_seconds"],
+    ) for item in data["animations"])
+    validate_animations(actions, data["size"])
+    return ROOT / data["image"], actions
+
