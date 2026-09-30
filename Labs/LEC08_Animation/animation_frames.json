@@ -1,0 +1,436 @@
+{
+  "source": "Pixel-Sprite-Sheet2.png",
+  "image": "animation_atlas.png",
+  "size": [
+    956,
+    818
+  ],
+  "animations": [
+    {
+      "name": "IDLE",
+      "frame_seconds": 0.1,
+      "frames": [
+        {
+          "left": 2,
+          "bottom": 676,
+          "width": 110,
+          "height": 140,
+          "source_box": [
+            275,
+            67,
+            385,
+            207
+          ]
+        },
+        {
+          "left": 116,
+          "bottom": 676,
+          "width": 110,
+          "height": 140,
+          "source_box": [
+            467,
+            67,
+            577,
+            207
+          ]
+        },
+        {
+          "left": 230,
+          "bottom": 676,
+          "width": 110,
+          "height": 140,
+          "source_box": [
+            659,
+            67,
+            769,
+            207
+          ]
+        },
+        {
+          "left": 344,
+          "bottom": 676,
+          "width": 110,
+          "height": 140,
+          "source_box": [
+            851,
+            67,
+            961,
+            207
+          ]
+        },
+        {
+          "left": 458,
+          "bottom": 674,
+          "width": 110,
+          "height": 142,
+          "source_box": [
+            1040,
+            65,
+            1150,
+            207
+          ]
+        },
+        {
+          "left": 572,
+          "bottom": 674,
+          "width": 110,
+          "height": 142,
+          "source_box": [
+            1232,
+            65,
+            1342,
+            207
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WALK",
+      "frame_seconds": 0.1,
+      "frames": [
+        {
+          "left": 2,
+          "bottom": 532,
+          "width": 115,
+          "height": 138,
+          "source_box": [
+            254,
+            301,
+            369,
+            439
+          ]
+        },
+        {
+          "left": 121,
+          "bottom": 531,
+          "width": 115,
+          "height": 139,
+          "source_box": [
+            445,
+            300,
+            560,
+            439
+          ]
+        },
+        {
+          "left": 240,
+          "bottom": 528,
+          "width": 114,
+          "height": 142,
+          "source_box": [
+            638,
+            297,
+            752,
+            439
+          ]
+        },
+        {
+          "left": 358,
+          "bottom": 528,
+          "width": 115,
+          "height": 142,
+          "source_box": [
+            828,
+            297,
+            943,
+            439
+          ]
+        },
+        {
+          "left": 477,
+          "bottom": 528,
+          "width": 115,
+          "height": 142,
+          "source_box": [
+            1021,
+            297,
+            1136,
+            439
+          ]
+        },
+        {
+          "left": 596,
+          "bottom": 531,
+          "width": 121,
+          "height": 139,
+          "source_box": [
+            1214,
+            300,
+            1335,
+            439
+          ]
+        },
+        {
+          "left": 721,
+          "bottom": 532,
+          "width": 115,
+          "height": 138,
+          "source_box": [
+            1402,
+            301,
+            1517,
+            439
+          ]
+        },
+        {
+          "left": 840,
+          "bottom": 532,
+          "width": 114,
+          "height": 138,
+          "source_box": [
+            1597,
+            300,
+            1711,
+            438
+          ]
+        }
+      ]
+    },
+    {
+      "name": "RUN",
+      "frame_seconds": 0.1,
+      "frames": [
+        {
+          "left": 2,
+          "bottom": 382,
+          "width": 115,
+          "height": 142,
+          "source_box": [
+            252,
+            517,
+            367,
+            659
+          ]
+        },
+        {
+          "left": 121,
+          "bottom": 384,
+          "width": 103,
+          "height": 140,
+          "source_box": [
+            457,
+            519,
+            560,
+            659
+          ]
+        },
+        {
+          "left": 228,
+          "bottom": 398,
+          "width": 107,
+          "height": 126,
+          "source_box": [
+            657,
+            519,
+            764,
+            645
+          ]
+        },
+        {
+          "left": 339,
+          "bottom": 395,
+          "width": 121,
+          "height": 129,
+          "source_box": [
+            839,
+            520,
+            960,
+            649
+          ]
+        },
+        {
+          "left": 464,
+          "bottom": 381,
+          "width": 113,
+          "height": 143,
+          "source_box": [
+            1016,
+            518,
+            1129,
+            661
+          ]
+        },
+        {
+          "left": 581,
+          "bottom": 379,
+          "width": 116,
+          "height": 145,
+          "source_box": [
+            1204,
+            516,
+            1320,
+            661
+          ]
+        },
+        {
+          "left": 701,
+          "bottom": 383,
+          "width": 116,
+          "height": 141,
+          "source_box": [
+            1402,
+            517,
+            1518,
+            658
+          ]
+        },
+        {
+          "left": 821,
+          "bottom": 385,
+          "width": 105,
+          "height": 139,
+          "source_box": [
+            1606,
+            520,
+            1711,
+            659
+          ]
+        }
+      ]
+    },
+    {
+      "name": "FIGHTING STANCE",
+      "frame_seconds": 0.1,
+      "frames": [
+        {
+          "left": 2,
+          "bottom": 236,
+          "width": 147,
+          "height": 139,
+          "source_box": [
+            254,
+            732,
+            401,
+            871
+          ]
+        },
+        {
+          "left": 153,
+          "bottom": 236,
+          "width": 147,
+          "height": 139,
+          "source_box": [
+            447,
+            732,
+            594,
+            871
+          ]
+        },
+        {
+          "left": 304,
+          "bottom": 235,
+          "width": 146,
+          "height": 140,
+          "source_box": [
+            641,
+            731,
+            787,
+            871
+          ]
+        },
+        {
+          "left": 454,
+          "bottom": 234,
+          "width": 147,
+          "height": 141,
+          "source_box": [
+            832,
+            730,
+            979,
+            871
+          ]
+        },
+        {
+          "left": 605,
+          "bottom": 233,
+          "width": 146,
+          "height": 142,
+          "source_box": [
+            1026,
+            729,
+            1172,
+            871
+          ]
+        },
+        {
+          "left": 755,
+          "bottom": 236,
+          "width": 146,
+          "height": 139,
+          "source_box": [
+            1219,
+            732,
+            1365,
+            871
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ATTACK 1",
+      "frame_seconds": 0.1,
+      "frames": [
+        {
+          "left": 2,
+          "bottom": 91,
+          "width": 206,
+          "height": 138,
+          "source_box": [
+            237,
+            944,
+            443,
+            1082
+          ]
+        },
+        {
+          "left": 212,
+          "bottom": 58,
+          "width": 157,
+          "height": 171,
+          "source_box": [
+            433,
+            912,
+            590,
+            1083
+          ]
+        },
+        {
+          "left": 373,
+          "bottom": 2,
+          "width": 129,
+          "height": 227,
+          "source_box": [
+            670,
+            856,
+            799,
+            1083
+          ]
+        },
+        {
+          "left": 506,
+          "bottom": 6,
+          "width": 192,
+          "height": 223,
+          "source_box": [
+            859,
+            859,
+            1051,
+            1082
+          ]
+        },
+        {
+          "left": 702,
+          "bottom": 91,
+          "width": 203,
+          "height": 138,
+          "source_box": [
+            1055,
+            944,
+            1258,
+            1082
+          ]
+        }
+      ]
+    }
+  ]
+}
