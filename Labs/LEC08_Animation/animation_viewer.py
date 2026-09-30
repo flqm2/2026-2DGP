@@ -55,3 +55,23 @@ def validate_animations(actions, size):
                     or frame.bottom + frame.height > size[1]):
                 raise ValueError(f"Frame outside atlas: {action.name}, {frame}")
 
+
+class Player:
+    def __init__(self, animations):
+        if not animations:
+            raise ValueError("No animations to play")
+        self.animations = animations
+        self.action_index = 0
+        self.frame_index = 0
+        self.completed_loops = 0
+        self.paused = False
+        self.remaining = self.action.frame_seconds
+
+    @property
+    def action(self):
+        return self.animations[self.action_index]
+
+    @property
+    def frame(self):
+        return self.action.frames[self.frame_index]
+
