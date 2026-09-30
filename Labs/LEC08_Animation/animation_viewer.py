@@ -139,3 +139,9 @@ def load_status_font(pico):
             return pico.load_font(str(path), 18)
     return None
 
+
+def quit_requested(pico):
+    return any(event.type == pico.SDL_QUIT
+               or (event.type == pico.SDL_KEYDOWN and event.key == pico.SDLK_ESCAPE)
+               for event in pico.get_events())
+
