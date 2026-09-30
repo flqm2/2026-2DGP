@@ -145,3 +145,48 @@ def quit_requested(pico):
                or (event.type == pico.SDL_KEYDOWN and event.key == pico.SDLK_ESCAPE)
                for event in pico.get_events())
 
+
+def main():
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--check", action="store_true", help="validate assets without opening a window")
+    parser.add_argument("--smoke-test", action="store_true", help="render every frame once, then close")
+    args = parser.parse_args()
+    atlas_path, actions = load_animations()
+    if not atlas_path.is_file():
+        raise FileNotFoundError(atlas_path)
+    for action in actions:
+        animation_scale(action)
+    if args.check:
+        print("Validated: " + ", ".join(f"{a.name}={len(a.frames)}" for a in actions))
+        return
+
+    import pico2d as pico
+    pico.open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
+    try:
+        atlas = pico.load_image(str(atlas_path))
+        font = load_status_font(pico)
+        player = Player(actions)
+        if args.smoke_test:
+            for action_index, action in enumerate(actions):
+                player.action_index = action_index
+                for frame_index in range(len(action.frames)):
+                    if quit_requested(pico):
+                        return
+                    player.frame_index = frame_index
+                    draw_frame(pico, atlas, player, font)
+            print("Rendered all 33 frames using pico2d")
+            return
+        previous = time.perf_counter()
+        while not quit_requested(pico):
+            now = time.perf_counter()
+            player.update(now - previous)
+            previous = now
+            draw_frame(pico, atlas, player, font)
+            pico.delay(0.01)  # events stay responsive even in the one-second hold
+    finally:
+        pico.close_canvas()
+
+
+if __name__ == "__main__":
+    main()
