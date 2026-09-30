@@ -110,3 +110,21 @@ def animation_scale(action):
         raise ValueError(f"Cannot enlarge {action.name} without clipping")
     return scale
 
+
+def draw_frame(pico, atlas, player, font=None):
+    pico.clear_canvas()
+    frame = player.frame
+    scale = animation_scale(player.action)
+    atlas.clip_draw(frame.left, frame.bottom, frame.width, frame.height,
+                    CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2,
+                    frame.width * scale, frame.height * scale)
+    if font:
+        phase = (f"HOLD {player.remaining:.1f}s" if player.paused
+                 else f"LOOP {player.completed_loops + 1}/{REPEAT_COUNT}")
+        font.draw(20, CANVAS_HEIGHT - 28,
+                  f"{player.action_index + 1}/{len(player.animations)}  "
+                  f"{player.action.name} | FRAME {player.frame_index + 1}/"
+                  f"{len(player.action.frames)} | {phase}", (25, 25, 25))
+        font.draw(20, 22, "ESC: quit | 5 loops > 1 second hold > next animation", (25, 25, 25))
+    pico.update_canvas()
+
