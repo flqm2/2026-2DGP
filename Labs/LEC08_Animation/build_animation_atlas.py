@@ -56,3 +56,21 @@ SOURCE_ROWS = [
                   (670,856,799,1083), (859,859,1051,1082),
                   (1055,944,1258,1082)]),
 ]
+
+
+def cut_frame(source, components, rectangle):
+    from PIL import Image
+    left, top, right, bottom = rectangle
+    result = Image.new("RGBA", (right - left, bottom - top))
+    original = source.load()
+    target = result.load()
+    count = 0
+    for bounds, points in components:
+        x0, y0, x1, y1 = bounds
+        if left <= x0 and top <= y0 and x1 <= right and y1 <= bottom:
+            for x, y in points:
+                target[x - left, y - top] = (*original[x, y], 255)
+                count += 1
+    if count < 3000:
+        raise ValueError(f"Incomplete sprite at {rectangle}: {count} pixels")
+    return result
