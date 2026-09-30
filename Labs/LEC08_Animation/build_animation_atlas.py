@@ -74,3 +74,40 @@ def cut_frame(source, components, rectangle):
     if count < 3000:
         raise ValueError(f"Incomplete sprite at {rectangle}: {count} pixels")
     return result
+
+
+def build_atlas():
+    import json
+    from PIL import Image
+    source = Image.open(SOURCE).convert("RGB")
+    components = foreground_components(source)
+    rows = [(name, [(rect, cut_frame(source, components, rect)) for rect in rects])
+            for name, rects in SOURCE_ROWS]
+    width = max(sum(frame.width + 4 for _, frame in frames) for _, frames in rows)
+    height = sum(max(frame.height for _, frame in frames) + 4 for _, frames in rows)
+    atlas = Image.new("RGBA", (width, height))
+    metadata = {"source": SOURCE.name, "image": "animation_atlas.png",
+                "size": [width, height], "animations": []}
+    top = 2
+    for name, frames in rows:
+        action = {"name": name, "frame_seconds": 0.10, "frames": []}
+        left = 2
+        for source_box, frame in frames:
+            atlas.paste(frame, (left, top))
+            action["frames"].append({
+                "left": left, "bottom": height - top - frame.height,
+                "width": frame.width, "height": frame.height,
+                "source_box": list(source_box),
+            })
+            left += frame.width + 4
+        metadata["animations"].append(action)
+        top += max(frame.height for _, frame in frames) + 4
+    atlas.save(ROOT / metadata["image"])
+    (ROOT / "animation_frames.json").write_text(
+        json.dumps(metadata, indent=2) + "\n", encoding="utf-8")
+    print(f"Built {width}x{height} atlas: " +
+          ", ".join(f"{a['name']}={len(a['frames'])}" for a in metadata["animations"]))
+
+
+if __name__ == "__main__":
+    build_atlas()
