@@ -39,3 +39,19 @@ def load_animations(path=ROOT / "animation_frames.json"):
     validate_animations(actions, data["size"])
     return ROOT / data["image"], actions
 
+
+def validate_animations(actions, size):
+    if not actions or len(size) != 2 or any(v <= 0 for v in size):
+        raise ValueError("An atlas needs dimensions and at least one animation")
+    for action in actions:
+        if not action.frames or not math.isfinite(action.frame_seconds) or action.frame_seconds <= 0:
+            raise ValueError(f"Invalid frame count or duration: {action.name}")
+        for frame in action.frames:
+            values = (frame.left, frame.bottom, frame.width, frame.height)
+            if any(type(value) is not int for value in values):
+                raise ValueError("Frame coordinates must be integers")
+            if (frame.left < 0 or frame.bottom < 0 or frame.width <= 0 or frame.height <= 0
+                    or frame.left + frame.width > size[0]
+                    or frame.bottom + frame.height > size[1]):
+                raise ValueError(f"Frame outside atlas: {action.name}, {frame}")
+
