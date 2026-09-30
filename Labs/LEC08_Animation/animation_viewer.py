@@ -128,3 +128,14 @@ def draw_frame(pico, atlas, player, font=None):
         font.draw(20, 22, "ESC: quit | 5 loops > 1 second hold > next animation", (25, 25, 25))
     pico.update_canvas()
 
+
+def load_status_font(pico):
+    """Status text is optional; animation also works without a system font."""
+    import os
+    fonts = [Path(os.environ.get("WINDIR", "C:/Windows")) / "Fonts/arial.ttf",
+             Path("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf")]
+    for path in fonts:
+        if path.is_file():
+            return pico.load_font(str(path), 18)
+    return None
+
