@@ -12,3 +12,18 @@ REPEAT_COUNT = 5
 PAUSE_SECONDS = 1.0
 MIN_CHARACTER_HEIGHT = CANVAS_HEIGHT * 0.5
 
+
+@dataclass(frozen=True)
+class Frame:
+    left: int
+    bottom: int
+    width: int
+    height: int
+
+
+@dataclass(frozen=True)
+class Animation:
+    name: str
+    frames: tuple[Frame, ...]
+    frame_seconds: float
+
