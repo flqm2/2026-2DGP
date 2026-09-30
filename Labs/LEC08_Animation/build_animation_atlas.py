@@ -73,7 +73,8 @@ def cut_frame(source, components, rectangle):
                 count += 1
     if count < 3000:
         raise ValueError(f"Incomplete sprite at {rectangle}: {count} pixels")
-    return result
+    # Trim transparent padding so enlargement measures visible pixels.
+    return result.crop(result.getbbox())
 
 
 def build_atlas():
