@@ -101,3 +101,12 @@ class Player:
                     self.remaining = self.action.frame_seconds
         self.remaining -= elapsed
 
+
+def animation_scale(action):
+    """One scale per action keeps pose changes from causing zoom flicker."""
+    scale = MIN_CHARACTER_HEIGHT / min(frame.height for frame in action.frames)
+    if (max(frame.height for frame in action.frames) * scale > CANVAS_HEIGHT - 70
+            or max(frame.width for frame in action.frames) * scale > CANVAS_WIDTH - 40):
+        raise ValueError(f"Cannot enlarge {action.name} without clipping")
+    return scale
+
