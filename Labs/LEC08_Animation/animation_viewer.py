@@ -164,6 +164,7 @@ def main():
     import pico2d as pico
     pico.open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
     try:
+        pico.hide_lattice()
         atlas = pico.load_image(str(atlas_path))
         font = load_status_font(pico)
         player = Player(actions)
